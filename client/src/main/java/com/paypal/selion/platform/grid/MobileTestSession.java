@@ -40,6 +40,7 @@ public class MobileTestSession extends AbstractTestSession {
     private String appLocale;
     private String deviceSerial;
     private String deviceType;
+    private String apiType;
     private String platformVersion;
 
     MobileTestSession() {
@@ -103,6 +104,10 @@ public class MobileTestSession extends AbstractTestSession {
         return deviceType;
     }
 
+    public String getAPIType() {
+        return apiType;
+    }
+
     @Override
     public SeLionSession startSesion() {
         logger.entering();
@@ -164,6 +169,9 @@ public class MobileTestSession extends AbstractTestSession {
             }
             if (StringUtils.isNotBlank(deviceTestAnnotation.deviceType())) {
                 this.deviceType = deviceTestAnnotation.deviceType();
+            }
+            if (StringUtils.isNotBlank(deviceTestAnnotation.apiType())) {
+                this.apiType = deviceTestAnnotation.apiType();
             }
         }
         logger.exiting();

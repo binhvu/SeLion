@@ -26,8 +26,8 @@ import com.paypal.selion.platform.grid.Grid;
 import com.paypal.selion.reports.runtime.WebReporter;
 
 public class AndroidTest {
-    @Test
-    @MobileTest(appName = "android", device = "android:19")
+//    @Test
+//    @MobileTest(appName = "android", device = "android:19", deviceType = "Nexus 4")
     public void testLaunch() throws Exception {
         RemoteWebDriver driver = Grid.selendroidDriver();
         assertNotNull(driver);
@@ -49,4 +49,11 @@ public class AndroidTest {
         // Check the title of the page
         System.out.println("Page title is: " + driver.getTitle());
     }
+
+  @Test
+  @MobileTest(appName = "com.paypal.android.p2pmobile", device = "android:16", deviceType = "Nexus 4", apiType = "Android")
+  public void testLaunch2() throws Exception {
+      RemoteWebDriver driver = Grid.selendroidDriver();
+      assertNotNull(driver);
+  }
 }

@@ -79,4 +79,9 @@ public @interface MobileTest {
      */
     String deviceType() default "";
 
+    /**
+     * Establish the type of API to be used (Google API or Android API)
+     * This parameter is only valid for emulators and not for hardware devices.
+     */
+    String apiType() default "";
 }

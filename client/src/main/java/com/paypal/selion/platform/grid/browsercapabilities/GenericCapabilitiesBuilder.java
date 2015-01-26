@@ -33,6 +33,7 @@ class GenericCapabilitiesBuilder extends DefaultCapabilitiesBuilder {
     private String locale = null;
     private String deviceSerial = null;
     private String platformVersion = null;
+    private String apiType = null;
 
     @Override
     public DesiredCapabilities getCapabilities(DesiredCapabilities capabilities) {
@@ -74,10 +75,13 @@ class GenericCapabilitiesBuilder extends DefaultCapabilitiesBuilder {
             caps.setCapability(SelendroidCapabilities.AUT, appName);
             caps.setCapability(SelendroidCapabilities.LOCALE, this.locale);
             if(this.deviceType != null && !this.deviceType.isEmpty()) {
-              caps.setCapability(SelendroidCapabilities.MODEL, deviceType);
+                caps.setCapability(SelendroidCapabilities.MODEL, deviceType);
             }
             if(this.platformVersion != null && !this.platformVersion.isEmpty()) {
-              caps.setCapability(SelendroidCapabilities.PLATFORM_VERSION, platformVersion);
+                caps.setCapability(SelendroidCapabilities.PLATFORM_VERSION, platformVersion);
+            }
+            if(this.apiType != null && !this.apiType.isEmpty()) {
+                caps.setCapability(SelendroidCapabilities.API_TYPE, apiType);
             }
             if(!this.deviceSerial.isEmpty()) {
                 caps.setCapability(SelendroidCapabilities.SERIAL, this.deviceSerial);
@@ -96,6 +100,7 @@ class GenericCapabilitiesBuilder extends DefaultCapabilitiesBuilder {
             this.deviceSerial = config.getdeviceSerial();
             this.deviceType = config.getDeviceType();
             this.platformVersion = config.getPlatformVersion();
+            this.apiType = config.getAPIType();
         }
     }
 }
